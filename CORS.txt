@@ -1,0 +1,23 @@
+
+
+								     	Access-Control-Allow-Origin
+
+			1.Using XMLHttpRequest object. ->.       using Response .addheader(Access-Control-Allow-Origin )
+			
+			2.Using HttpClinet library in Angular->    using httpclinet (exactly set path : "http://localhost:9090/api/teams")
+			
+			3.When Server support for CORS is not available.->   no path exactly set ->> then  proxy Config in client side
+			   
+			4.Achieving CORS when proxy can not be setup. (only during development/testing phase — Not productive scenario) -> using CORS plugin
+			
+			
+			
+			
+			 Conclusion:
+			   1.  Cross Origin Resource Sharing is something that browsers stop because of security reasons.
+
+Browsers expect the server hosting the API to return ‘Access-Control-Allow-Origin’ header with appropriate value in response.
+
+In case server don’t send required headers — a proxy can be setup which will eventually be a origin server to host (api) server call. Angular provides easy support via a proxy-configuration file (proxy.conf.json).
+
+If API(s) only needs to be tested (not in production scenario), browser plugins can be used which add required Access -Control headers in the response.
